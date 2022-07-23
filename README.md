@@ -17,3 +17,4 @@
 3. Chapter 10 파일 정리하기 기초 관련 복습 진행 - shutil 모듈, 디렉터리 트리, zipfile 모듈 등
 4. Chapter 11 예외처리, 단언, 로깅 기초 관련 복습 진행
 5. Chapter 12 웹 크롤링, 스크리팽 기초 관련 복습 진행 - requests, bs4, selenium 등
+6. Chapter 13 엑셀 스프레드시트 다루기 기초 관련 복습 진행 - openpyxl 기본 및 gspread와의 차이
