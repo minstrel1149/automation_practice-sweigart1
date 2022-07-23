@@ -14,3 +14,4 @@
 ### 2022년 7월 23일
 1. Chapter 8 pyinputplus 기초 관련 복습 진행
 2. Chapter 9 파일과 파일 경로 기초 관련 복습 진행 - pathlib, os 모듈 등
+3. Chapter 9 파일 정리하기 기초 관련 복습 진행 - shutil 모듈, 디렉터리 트리, zipfile 모듈 등
