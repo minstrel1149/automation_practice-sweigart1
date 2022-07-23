@@ -13,3 +13,4 @@
 
 ### 2022년 7월 23일
 1. Chapter 8 pyinputplus 기초 관련 복습 진행
+2. Chapter 9 파일과 파일 경로 기초 관련 복습 진행 - pathlib, os 모듈 등
