@@ -18,3 +18,7 @@
 4. Chapter 11 예외처리, 단언, 로깅 기초 관련 복습 진행
 5. Chapter 12 웹 크롤링, 스크리팽 기초 관련 복습 진행 - requests, bs4, selenium 등
 6. Chapter 13 엑셀 스프레드시트 다루기 기초 관련 복습 진행 - openpyxl 기본 및 gspread와의 차이
+
+### 2022년 7월 24일
+1. Chapter 14 구글 스프레드시트 다루기 - gspread 활용. 보안상 문제로 패스
+2. PDF 문서 다루기 기초 관련 복습 진행 - PyPDF2 활용 -> 워드 문서 다루기는 패스
