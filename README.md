@@ -23,3 +23,4 @@
 1. Chapter 14 구글 스프레드시트 다루기 - gspread 활용. 보안상 문제로 패스
 2. Chapter 15 PDF 문서 다루기 기초 관련 복습 진행 - PyPDF2 활용 -> 워드 문서 다루기는 패스
 3. Chapter 16 CSV와 JSON 데이터 다루기 기초 관련 복습 진행 - csv, json 모듈 등
+4. Chapter 17 시간 관리, 프로그램 실행 기초 관련 복습 진행 - datetime, time, threading, subprocess 모듈 등
