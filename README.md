@@ -27,4 +27,4 @@
 5. Chapter 18 이메일 보내고 받기 기초 관련 복습 진행 - 책 내용 대신 smtplib, email, imaplib 모듈 활용하여 연습
 
 ### 2022년 7월 25일
-1.
+1. Chapter 20 GUI 자동화로 키보드, 마우스 제어 기초 관련 복습 진행 - pyautogui 라이브러리
