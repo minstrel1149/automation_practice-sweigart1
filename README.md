@@ -25,3 +25,6 @@
 3. Chapter 16 CSV와 JSON 데이터 다루기 기초 관련 복습 진행 - csv, json 모듈 등
 4. Chapter 17 시간 관리, 프로그램 실행 기초 관련 복습 진행 - datetime, time, threading, subprocess 모듈 등
 5. Chapter 18 이메일 보내고 받기 기초 관련 복습 진행 - 책 내용 대신 smtplib, email, imaplib 모듈 활용하여 연습
+
+### 2022년 7월 25일
+1.
