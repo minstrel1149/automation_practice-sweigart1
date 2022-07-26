@@ -12,7 +12,7 @@
 1. Chapter 7 정규표현식 기초 관련 복습 진행
 
 ### 2022년 7월 23일
-1. Chapter 8 pyinputplus 기초 관련 복습 진행
+1. Chapter 8 입력값 검증하기 기초 관련 복습 진행 - pyinputplus 라이브러리
 2. Chapter 9 파일과 파일 경로 기초 관련 복습 진행 - pathlib, os 모듈 등
 3. Chapter 10 파일 정리하기 기초 관련 복습 진행 - shutil 모듈, 디렉터리 트리, zipfile 모듈 등
 4. Chapter 11 예외처리, 단언, 로깅 기초 관련 복습 진행
@@ -30,4 +30,5 @@
 1. Chapter 20 GUI 자동화로 키보드, 마우스 제어 기초 관련 복습 진행 - pyautogui 라이브러리
 
 ### 2022년 7월 26일
-1. Chapter 7 정규표현식 간단 프로젝트 학습
+1. Chapter 7 정규표현식 초간단 프로젝트 학습
+2. Chapter 8 입력값 검증하기 초간단 프로젝트 학습
