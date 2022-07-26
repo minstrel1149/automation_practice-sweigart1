@@ -29,6 +29,7 @@ site_list = [x.get('href') for x in obj_list if x.get('href').startswith(f'https
 
 for site in site_list:
     # driver.execute_script("window.open('---');") 활용하여 해당 사이트 새로운 탭으로 오픈
+    # driver.switch_to.window(driver.window_handles[i]) 활용하여 탭 간 이동 가능
     driver.execute_script(f"window.open('{site}');")
 
 print('Process Done!')
