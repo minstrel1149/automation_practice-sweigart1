@@ -4,27 +4,23 @@ import sys
 from pathlib import Path
 import pyinputplus as pyip
 
+# api의 차이가 생겼는지, 위도와 경도를 기록하도록 바뀌어야
 if len(sys.argv) < 2:
-    print('Usage: Chapter16_pjt2_tkim1.py city_name 2-letter_country_code')
+    print('Usage: Chapter16_pjt2_tkim1.py latitude logitude apikey')
     sys.exit()
 
-location = ' '.join(sys.argv[1:])
+lat = sys.argv[1]
+lon = sys.argv[2]
+# apikey의 경우 pyip.inputStr(prompt='API KEY: ')를 사용할 수도
+# apikey는 https://home.openweathermap.org/api_keys 여기서 활용
+apikey = sys.argv[3]
 
-url = f'https://api.openweathermap.org/data/3.0/onecall?lat={latitude}&lon={longitude}&exclude={part}&appid={apikey}'
+url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={apikey}'
 res = requests.get(url)
 res.raise_for_status()
 
+# json 파일을 딕셔너리로 변경
 weatherData = json.loads(res.text)
 
-weather = weatherData['list']
-print(f'Current weather in {location}')
-print(weather[0]['weather'][0]['main'], '-', weather[0]['weather'][0]['description'])
-print()
-print('Tomorrow:')
-print(weather[1]['weather'][0]['main'], '-', weather[1]['weather'][0]['description'])
-print()
-print('Day after Tomorrow:')
-print(weather[2]['weather'][0]['main'], '-', weather[2]['weather'][0]['description'])
-
-
-# API키가 activate 되고 나서 실행해야 할듯
+print(f'Current weather in {weatherData["name"]}')
+print(weatherData['weather'][0]['main'], '-', weatherData['weather'][0]['description'])
