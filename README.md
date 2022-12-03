@@ -41,6 +41,25 @@
     - 마침표-별표-물음표로 최소 일치 가능
     - re.DOTALL 인자 전달하여 개행 문자를 포함한 모든 문자와 일치 가능
 
+### Chapter.8 - pyinputplus 모듈
+1. 주요 함수 종류
+  - inputStr()
+  - inputNum() / inputInt() / inputFloat()
+  - inputChoice() / inputMenu() - 제공한 선택사항 중 하나만 입력
+  - inputYesNo() / inputBool()
+  - inputEmail()
+  - inputCustom() - 사용자 정의 함수 전달(input 형태이므로 기본적으로는 문자열을 입력받는 것)
+2. 활용 가능한 전달인자
+  - prompt
+  - min, max, greaterThan, lessThan
+  - blank=True
+  - limit, timeout → default 인자를 통한 예외 처리
+  - allowRegexes, blockRegexes → allowRegexes가 더 높은 우선순위
+    - 튜플로 묶어서 전달할 경우 첫 번째가 전달하는 정규식, 두 번째는 금지 표현식 작성 시 회신
+
+### Chapter.9 - 파일과 파일 경로
+1. 
+
 
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
