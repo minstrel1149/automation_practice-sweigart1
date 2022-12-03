@@ -58,7 +58,26 @@
     - 튜플로 묶어서 전달할 경우 첫 번째가 전달하는 정규식, 두 번째는 금지 표현식 작성 시 회신
 
 ### Chapter.9 - 파일과 파일 경로
-1. 
+1. pathlib 모듈 Path 함수 및 os 모듈
+  - 슬래시(/)를 사용해 연결 → 기존 os.path.join() 함수 대체
+  - Path.home(), Path.cwd() → os.chdir() 함수로 Current Working Directory 수정 가능
+  - 절대 경로와 상대 경로
+    - 마침표 한 개(.)는 현재 디렉터리 축약, 마침표 두 개(..)는 상위 폴더를 의미
+    - is_absolute 메서드로 절대 경로 여부 확인 가능
+    - os.path.abspath() 함수 및 os.path.relpath() 함수로 상호 변경 가능
+  - os.makedirs() 함수로 새로운 폴더 생성 가능 → Path 객체의 mkdir 메서드와 유사(os.mkdir())
+    - exist_ok=True 인자 전달하여 예외발생 방지 가능
+  - 파일 경로의 일부분 얻기 → Path 객체의 속성 이용
+    - anchor, parent(Path 객체 반환), name, stem, suffix, drive
+    - parents 속성 이용하여 상위 폴더들 가져오기 가능
+    - os.path.dirname(), os.path.basename()도 활용 → os.path.split(path)로 이분할 가능
+    - os.sep 속성(구분자 - 슬래시 혹은 역슬래시) 이용하여 파이썬의 split 연계
+  - os.listdir(path)로 path에 있는 파일 이름 리스트 반환 혹은 Path 객체의 glob 메서드 이용
+    - 문자열(파일이름) 반환이냐 Path 객체 반환이냐
+    - glob 메서드는 '*.txt', 'project?.docx' 형태 등 활용 가능
+  - 경로 유효성 검사
+    - p.exists(), p.is_file(), p.is_dir()
+  
 
 
 
