@@ -77,6 +77,24 @@
     - glob 메서드는 '*.txt', 'project?.docx' 형태 등 활용 가능
   - 경로 유효성 검사
     - p.exists(), p.is_file(), p.is_dir()
+2. 파일 읽기/쓰기 및 파일에 변수 저장
+  - open() 함수를 호출하면 File 객체를 반환 → File 객체에 메서드 호출로 처리
+  - mode='r' / 'rb' 인자 전달하여 읽기
+    - read, readline, readlines 메서드 혹은 read().splitlines()
+  - mode='w' / 'wb' / 'a' 인자 전달하여 쓰기
+  - shelve 모듈 사용하여 변수들을 shelf 파일로 저장 가능
+    - shelve.open() 함수는 Path 객체 사용 불가 → str로 형변환 필요
+
+### Chapter.10 - 파일 정리하기
+1. shutil 모듈 및 send2trash 모듈을 통한 파일 정리
+  - shutil.copy(), shutil.copytree() 함수를 통한 복사
+    - copytree 함수는 덮어쓰기가 안되므로 예외 처리 필요
+  - shutil.move() 함수를 통한 파일 이동 및 이름 바꾸기
+  - os.unlink(), os.rmdir(), shutil.rmtree(), send2trash.send2trach() 함수를 통한 삭제
+    - 삭제 시에는 send2trash 이용(파일 영구 삭제가 아닌 휴지통으로 이동)
+    - 주석 처리하고 print를 통해 삭제할 파일을 먼저 확인 필요
+2. 디렉터리 트리 탐색
+  - os.walk() 함수 활용 → 폴더 경로 문자열, 하위 폴더 문자열 리스트, 폴더 내 파일 문자열 리스트
   
 
 
