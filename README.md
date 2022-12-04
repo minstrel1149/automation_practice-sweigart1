@@ -164,9 +164,12 @@
     - sheetnames 속성으로 시트들 이름 확인 가능
     - create_sheet(index, title) 메서드를 이용하여 새로운 시트 추가 가능
     - del wb['sheetname'] 연산자를 이용해 시트 삭제 가능
-  - wb['sheet'] 형태로 특정 시트 얻기 혹은 wb.active 속성 이용
+  - wb['sheet'] 형태로 특정 시트 얻기 혹은 wb.active 속성 이용 → Sheet 객체
     - title 속성으로 해당 시트 이름 확인 가능
     - max_row, max_column 속성으로 시트 크기 결정 가능
+    - row_dimensions, column_dimensions의 height, width 속성 값 변경하여 행 높이, 열 너비 설정
+    - merge_cells(), unmerge_cells()를 이용해 셀 병합 및 셀 분할
+    - freeze_panes 속성을 바꿔주면서 틀 고정
   - sheet['A1'] 혹은 sheet.cell(1, 1) 형태로 셀 객체 얻기
     - 셀 객체에 value, row, column, coordinate 속성 존재
       - sheet['A1'].value = 'Hello' 혹은 sheet.cell(1, 1).value = 'Hello' 형태로 값 수정
@@ -175,6 +178,14 @@
   - openpyxl.utils 모듈에서 get_column_letter(), column_index_from_string() 함수 이용
   - openpyxl.styles 모듈에서 Font, Alignment 등 설정 가능
     - Font()함수를 이용하여 Font 객체를 생성한 후 셀 객체의 속성(font)으로 변화시키는 형태
+  - 차트 생성 : Reference 객체 → Series 객체 → Chart 객체 → Chart 객체에 Series 객체 추가
+    - openpyxl.chart 모듈 활용
+    - Reference 객체 : openpyxl.chart.Reference(Sheet, min_col, min_row, max_col, max_row)
+    - Series 객체 : openpyxl.chart.Series(Ref, title)
+    - Chart 객체 : openpyxl.chart.BarChart()
+      - title 속성으로 이름 변경
+      - append 메서드를 통해 Series 객체 전달
+    - sheet.add_chart(Chart, '위치') 를 통해 시트에 그래프 추가
 
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
