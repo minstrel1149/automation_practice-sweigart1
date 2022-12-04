@@ -158,6 +158,24 @@
       - DOWN, UP, LEFT, RIGHT, ENTER, HOME, END, PAGE_UP, PAGE_DOWN, ESCAPE, BACK_SPACE, TAB 등
   - driver에 back, forward, refresh, quit 메서드로 driver 컨트롤 가능
 
+### Chapter.13/14 - 엑셀/구글 스프레드시트 다루기
+1. openpyxl 모듈을 이용한 엑셀 컨트롤
+  - load_workbook() 함수를 통한 불러오기 혹은 Workbook() 함수를 통한 쓰기 → 엑셀 파일(workbook) 객체 생성
+    - sheetnames 속성으로 시트들 이름 확인 가능
+    - create_sheet(index, title) 메서드를 이용하여 새로운 시트 추가 가능
+    - del wb['sheetname'] 연산자를 이용해 시트 삭제 가능
+  - wb['sheet'] 형태로 특정 시트 얻기 혹은 wb.active 속성 이용
+    - title 속성으로 해당 시트 이름 확인 가능
+    - max_row, max_column 속성으로 시트 크기 결정 가능
+  - sheet['A1'] 혹은 sheet.cell(1, 1) 형태로 셀 객체 얻기
+    - 셀 객체에 value, row, column, coordinate 속성 존재
+      - sheet['A1'].value = 'Hello' 혹은 sheet.cell(1, 1).value = 'Hello' 형태로 값 수정
+    - sheet 객체 슬라이스도 가능(ex. sheet['A1':'C3']) → for문 활용하여 값 추출
+    - list(sheet.columns)[0] 형태로 특정 행이나 열에 존재하는 셀 들에 접근
+  - openpyxl.utils 모듈에서 get_column_letter(), column_index_from_string() 함수 이용
+  - openpyxl.styles 모듈에서 Font, Alignment 등 설정 가능
+    - Font()함수를 이용하여 Font 객체를 생성한 후 셀 객체의 속성(font)으로 변화시키는 형태
+
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
 ### 2022년 7월 22일
