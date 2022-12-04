@@ -135,7 +135,28 @@
     - bsObj.find_all('img', {'class':'img-responsive'}) 형태로 활용
   - get 메서드를 활용하여 해당 속성 값 반환 가능
     - attrs 속성을 이용해서 속성에 대한 키-값 반환도 가능
-
+3. selenium 모듈을 사용하여 브라우저 제어
+  - import 필요한 모듈
+    - from selenium import webdriver
+    - from selenium.webdriver.chrome.service import Service
+    - from webdriver_manager.chrome import ChromeDriverManager
+    - from selenium.webdriver.common.by import By
+    - from selenium.webdriver.common.keys import Keys
+    - from selenium.webdriver.chrome.options import Options
+    - driver = webdriver.Chrome(service=Service(ChromeDriverManager().install())) 형태로 오픈
+  - get 메서드에 사이트 주소 전달하여 사이트 오픈
+  - 페이지에서 요소를 찾는 메서드로 find_element(s) 이용
+    - find_element(s) 종류
+      - By.CLASS_NAME, By.ID, By.LINK_TEXT, By.PARTIAL_LINK_TEXT, By.NAME, By.TAG_NAME
+    - tag_name 속성 이용하여 태그 이름 추출
+    - text 속성 이용하여 텍스트 추출
+    - get_attribute 메서드 이용하여 name 속성에 해당하는 값 추출
+    - LINK_TEXT 관련 객체의 경우 click 메서드를 이용해 드라이버 조종 가능
+    - send_keys 메서드 및 submit 메서드를 이용해 작성 후 제출 가능
+    - send_keys 메서드에 Keys 모듈 결합 가능
+      - By.TAG_NAME('html')을 통해 사이트 자체를 컨트롤하도록 만든 후 진행
+      - DOWN, UP, LEFT, RIGHT, ENTER, HOME, END, PAGE_UP, PAGE_DOWN, ESCAPE, BACK_SPACE, TAB 등
+  - driver에 back, forward, refresh, quit 메서드로 driver 컨트롤 가능
 
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
