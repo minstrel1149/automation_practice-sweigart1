@@ -95,6 +95,25 @@
     - 주석 처리하고 print를 통해 삭제할 파일을 먼저 확인 필요
 2. 디렉터리 트리 탐색
   - os.walk() 함수 활용 → 폴더 경로 문자열, 하위 폴더 문자열 리스트, 폴더 내 파일 문자열 리스트
+3. zipfile 모듈을 활용한 파일/폴더 압축
+  - ZipFile() 함수 활용하여 경로 확인 → ZipFile 객체 반환
+    - namelist 메서드로 압축 파일 내 파일 이름들 확인
+    - getinfo(파일 이름) 메서드 → file_size, compress_size 속성 등
+    - extractall(경로), extract(파일, 경로) 메서드로 압축 풀기
+  - ZipFile() 함수에 mode='w' 인자 전달하여 압축 가능('a' 전달하면 압축 파일에 추가도 가능)
+    - write 메서드 활용 시 compress_type=zipfile.ZIP_DEFLATED 전달 필요
+    - os.walk() 등과 연계하여 폴더 내 모든 파일도 압축 가능
+    - Path.home()에서 상위 폴더들까지 압축경로로 이어지는 문제 해결해야..
+
+### Chapter.11 - 디버깅
+1. raise Exception()을 통한 예외 일으키기
+2. assert문을 통한 AssertionError 일으키키
+  - assert '조건' → 조건이 거짓이면 예외를 일으키는 형태
+  - 프로그램의 정상적인 작업 부분에서 발생하는 오류는 assert 대신 raise 형태로 진행
+  - try ~ except 문과 함께 활용하여 처리하지 말아야
+3. logging 모듈
+  - basicConfig(level=, filename=), debug(), disable() 함수 등 이용
+  - DEBUG, INFO, WARNING, ERROR, CRITICAL 순서
   
 
 
