@@ -114,7 +114,27 @@
 3. logging 모듈
   - basicConfig(level=, filename=), debug(), disable() 함수 등 이용
   - DEBUG, INFO, WARNING, ERROR, CRITICAL 순서
-  
+
+### Chapter.12 - 웹 스크래핑
+1. webbrowser 모듈 및 requests 모듈
+  - webbrowser.open() 함수 활용하여 특정 URL에 접속
+  - requests.get(URL 문자열) → Response 객체 반환
+    - raise_for_status 메서드로 오류 검사 → try ~ except 문으로 처리 가능
+    - 텍스트 파일일 경우 text 속성으로 확인 가능(단, 이진문서임을 고려)
+    - for문과 iter_content() 메서드 이용하여 PC에 저장 가능
+2. bs4 모듈을 통한 웹 크롤링 및 스크래핑
+  - BS(res.text, 'html.parser') 형태로 BeautifulSoup 객체 반환 → 'html.parser'는 구문 분석기
+  - select 메서드 → CSS 선택자의 문자열을 통한 검색
+    - bsObj.select('div') : 이름이 div인 모든 요소
+    - bsObj.select('div span') : div 요소 내 존재하는 요소 중 이름이 span인 모든 요소
+    - bsObj.select('#author') : id 속성이 author인 요소
+    - bsObj.select('.notice') : CSS class 속성의 이름이 notice인 요소
+    - bsObj.select('input[name]') : 이름이 input인 요소 중 name 속성 값이 있는 모든 요소
+    - bsObj.select('input[type="button"]') : 이름이 input인 요소 중 type 속성 값이 button인 경우
+  - find / find_all 메서드
+    - bsObj.find_all('img', {'class':'img-responsive'}) 형태로 활용
+  - get 메서드를 활용하여 해당 속성 값 반환 가능
+    - attrs 속성을 이용해서 속성에 대한 키-값 반환도 가능
 
 
 
