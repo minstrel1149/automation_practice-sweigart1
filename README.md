@@ -186,6 +186,7 @@
       - title 속성으로 이름 변경
       - append 메서드를 통해 Series 객체 전달
     - sheet.add_chart(Chart, '위치') 를 통해 시트에 그래프 추가
+2. win32com.client 모듈을 활용한 엑셀 컨트롤(연습용)
 
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
