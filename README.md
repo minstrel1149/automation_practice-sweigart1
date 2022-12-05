@@ -208,10 +208,13 @@
   - wb.get_worksheet(i) 혹은 wb.worksheet(이름) 형태로 특정 시트 얻기 → worksheet 객체
   - sheet.acell('A1') 혹은 sheet.cell(1, 1) 형태로 셀 객체 얻기
     - sheet.acell('A1').value, sheet.cell(1, 1).value 형태로 셀 값 얻기도 가능
+    - sheet.get('A1:C3') 형태로 범위 내 값 수집
     - sheet.update('A1:B2', [[1, 2] [3, 4]]) 형태로 셀 값 수정 가능
     - sheet.row_values(n), sheet.col_values(n) 형태로 행/열 모든 값 리스트로 수집
     - get_all_values 메서드로 전체 값을 리스트로 수집
     - sheet.batch_clear(['A1:B2']) 형태로 값 삭제 가능
+  - sheet.format('A1:B1', {}) 형태로 셀 포맷 수정
+    - 'backgroundcolor', 'horizontalAlignment', 'textFormat'(→ 'fontsize', 'bold') 등
 
 
 
