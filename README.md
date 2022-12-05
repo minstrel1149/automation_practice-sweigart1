@@ -186,7 +186,33 @@
       - title 속성으로 이름 변경
       - append 메서드를 통해 Series 객체 전달
     - sheet.add_chart(Chart, '위치') 를 통해 시트에 그래프 추가
-2. win32com.client 모듈을 활용한 엑셀 컨트롤(연습용)
+2. win32com.client 모듈을 활용한 엑셀 컨트롤(추가) → win32com.client.Dispatch('Excel.Application')
+  - excel.Visible = True 이용하여 엑셀을 보면서 컨트롤 가능
+  - excel.Workbooks.Add() 혹은 excel.Workbooks.Open(경로)를 통해 엑셀 오픈
+  - Worksheets(이름) 메서드 이용하여 시트 호출
+  - ws.Rows().EntireRow.Insert()/Delete() 이용하여 행열 추가/삭제
+  - ws.Range(범위).Copy() 이후 ws.Range(범위).Select()로 옮길 범위 지정 후 ws.Paste()로 복사-붙여넣기
+    - ws.Range(범위).PasteSpecial(n) 형태로 선택하여 붙여넣기
+      - -4122 : 서식 붙여넣기
+      - -4123 : 수식 붙여넣기
+      - 11 : 수식과 표시 형식 붙여넣기
+      - -4163 : 값 붙여넣기
+      - 12 : 값과 표시 형식 붙여넣기
+  - ws.Range(범위).ClearContents()로 내용 삭제 가능
+  - ws.Range('F1:F2').AutoFill(ws.Range('F1:F7')) 형태로 값 및 수식 자동 채우기
+3. gspread 모듈을 통한 구글 스프레드 시트 컨트롤
+  - wb = gc.open(링크) 형태로 오픈
+    - worksheets 메서드 → worksheet 객체들 리스트로 반환
+    - add_worksheet(title=) 메서드로 새로운 시트 생성
+    - del_worksheet(sheet) 메서드로 시트 삭제 → worksheet 객체가 들어가야
+  - wb.get_worksheet(i) 혹은 wb.worksheet(이름) 형태로 특정 시트 얻기 → worksheet 객체
+  - sheet.acell('A1') 혹은 sheet.cell(1, 1) 형태로 셀 객체 얻기
+    - sheet.acell('A1').value, sheet.cell(1, 1).value 형태로 셀 값 얻기도 가능
+    - sheet.update('A1:B2', [[1, 2] [3, 4]]) 형태로 셀 값 수정 가능
+    - sheet.row_values(n), sheet.col_values(n) 형태로 행/열 모든 값 리스트로 수집
+    - get_all_values 메서드로 전체 값을 리스트로 수집
+    - sheet.batch_clear(['A1:B2']) 형태로 값 삭제 가능
+
 
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
