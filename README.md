@@ -218,12 +218,12 @@
 
 ### Chapter.15 - PDF문서 다루기(PyPDF2)
 1. PDF 읽기 및 쓰기 컨트롤
-  - PyPDF2의 PdfFileReader(File객체) 함수 이용하여 PDF파일 읽기 → PDFReader객체
+  - PyPDF2의 PdfFileReader(File객체) 함수 이용하여 PDF파일 읽기 → PDFReader 객체
     - numPages 속성으로 페이지 수 확인
     - getPage(i) 메서드로 Page 객체 생성
   - PdfFileWriter() 함수 이용하여 새 PDF 파일 생성 → PDFWriter 객체
     - PDFWriter 객체에서 addPage 메서드로 페이지 추가 가능(제일 마지막 페이지에 추가)
-    - PDFWriter 객체에서 write(File객체) 메서드 이용하여 PDF파일 최종 쓰기
+    - PDFWriter 객체에서 write(File 객체) 메서드 이용하여 PDF파일 최종 쓰기
   - Page 객체에서 rotateClockwise(각도) 메서드로 페이지 회전 가능(inplace 적용)
   - Page 객체에서 mergePage(다른 Page 객체) 메서드로 페이지 덧입히기 가능(inplace 적용)
 2. 기타
@@ -231,6 +231,25 @@
   - PDFReader 객체에서 isEncrypted 속성으로 암호화 여부 판단
     - decrypt 메서드 이용하여 비밀번호 해제(단, PDFFile 객체를 해독할 뿐, 실제 PDF는 계속 비밀번호)
     - encrypt 메서드 이용하여 비밀번호 설정
+
+### Chapter.16 - CSV 파일과 JSON 데이터 다루기
+1. csv모듈
+  - csv 읽기
+    - csv.reader(File 객체) 함수를 통해 csv 읽기 → reader 객체
+      - reader 객체는 단 한 번만 반복 → 다시 읽으려면 다시 reader 객체를 생성해야
+    - list()에 전달 → 일반 파이썬 리스트로 변환하여 값에 접근
+    - reader 객체의 line_num 속성으로 몇 번째 줄에 위치하는지 파악
+    - csv.DictReader(File 객체, [헤더 리스트]) 함수로 헤더를 지정한 csv 읽기
+      - pd.read_csv() 에서는 header 인자 전달하여 가능
+  - csv 쓰기
+    - csv.writer(File 객체) 함수를 통해 csv 쓰기 → writer 객체
+      - csv.writer 함수 활용 시 delimiter='\t', lineterminator='\n\n' 등 선택 인자 전달 가능
+        - delimiter는 구분자, lineterminator는 줄 끝 문자
+    - File 객체 생성 시 newline='' 인자 꼭 전달해줘야
+    - writer 객체에서 writerow(s) 메서드 이용하여 내용 삽입 가능
+    - csv.DictWriter(File 객체, [헤더 리스트]) 함수로 헤더를 지정한 csv 쓰기
+      - writer 객체에서 writeheader 메서드 이용하여 파일에 헤더 행 삽입
+      - writerow 메서드 활용 시 딕셔너리로 전달
 
 
 
