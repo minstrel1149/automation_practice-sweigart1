@@ -216,6 +216,22 @@
   - sheet.format('A1:B1', {}) 형태로 셀 포맷 수정
     - 'backgroundcolor', 'horizontalAlignment', 'textFormat'(→ 'fontsize', 'bold') 등
 
+### Chapter.15 - PDF문서 다루기(PyPDF2)
+1. PDF 읽기 및 쓰기 컨트롤
+  - PyPDF2의 PdfFileReader(File객체) 함수 이용하여 PDF파일 읽기 → PDFReader객체
+    - numPages 속성으로 페이지 수 확인
+    - getPage(i) 메서드로 Page 객체 생성
+  - PdfFileWriter() 함수 이용하여 새 PDF 파일 생성 → PDFWriter 객체
+    - PDFWriter 객체에서 addPage 메서드로 페이지 추가 가능(제일 마지막 페이지에 추가)
+    - PDFWriter 객체에서 write(File객체) 메서드 이용하여 PDF파일 최종 쓰기
+  - Page 객체에서 rotateClockwise(각도) 메서드로 페이지 회전 가능(inplace 적용)
+  - Page 객체에서 mergePage(다른 Page 객체) 메서드로 페이지 덧입히기 가능(inplace 적용)
+2. 기타
+  - Page 객체에서 extractText() 메서드로 페이지 내 텍스트 추출
+  - PDFReader 객체에서 isEncrypted 속성으로 암호화 여부 판단
+    - decrypt 메서드 이용하여 비밀번호 해제(단, PDFFile 객체를 해독할 뿐, 실제 PDF는 계속 비밀번호)
+    - encrypt 메서드 이용하여 비밀번호 설정
+
 
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
