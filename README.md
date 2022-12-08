@@ -233,7 +233,7 @@
     - encrypt 메서드 이용하여 비밀번호 설정
 
 ### Chapter.16 - CSV 파일과 JSON 데이터 다루기
-1. csv모듈
+1. csv 모듈
   - csv 읽기
     - csv.reader(File 객체) 함수를 통해 csv 읽기 → reader 객체
       - reader 객체는 단 한 번만 반복 → 다시 읽으려면 다시 reader 객체를 생성해야
@@ -250,6 +250,34 @@
     - csv.DictWriter(File 객체, [헤더 리스트]) 함수로 헤더를 지정한 csv 쓰기
       - writer 객체에서 writeheader 메서드 이용하여 파일에 헤더 행 삽입
       - writerow 메서드 활용 시 딕셔너리로 전달
+2. json 모듈
+  - json.loads() 함수 : json → 딕셔너리
+  - json.dumps() 함수 : 딕셔너리 → json
+
+### Chapter.17 - 시간 관리, 작업 예약, 프로그램 실행
+1. 시간 관련 모듈 → time 모듈, datetime 모듈
+  - time 모듈
+    - Unix epoch(1970/1/1 00:00:00) 기준 경과 초 → time.time 함수
+    - time.ctime 함수 : 현재 시각에 관한 설명을 문자열로 반환
+    - time.sleep 함수를 통해 프로그램 잠시 중지 가능
+  - datetime 모듈(from datetime import ..) → 고유의 datetime 및 timedelta 자료형
+    - datetime 값은 특정 시점의 시각
+      - datetime(year, month, day, hour, minute) 형태로 활용
+      - datetime.now() == datetime.fromtimestamp(time.time())
+      - 더 나중 시점의 datetime 객체는 더 큰 값 → 비교 가능
+    - timedelta 값은 기간에 대한 시간
+      - timedelta(days, hours, minutes, seconds, microseconds) 형태로 활용
+      - days, seconds, microseconds 속성 및 total_seconds 메서드로 확인 가능
+      - str로 형변환도 가능
+      - datetime 값에 대해 날짜 산술 수행 가능
+    - datetime의 strftime 메서드 이용하여 문자열 형식으로 출력
+      - %Y(%y), %m(%B, %b), %d, %A(%a), %H(%I), %M, %S, %F, %D 형식 등
+    - strptime(문자열, 지시자) 함수로 strftime 메서드의 반대 역할 수행도 가능
+2. 멀티스레딩 → threading 모듈
+  - 지연 또는 예약 실행을 하려는 코드는 별도의 스레드에서 실행
+  - threading.Thread(target, (kw)args) 함수 → Thread 객체 생성
+    - target에는 함수 지정, args/kwargs에는 인자 전달
+    - Thread 객체를 변수에 할당 후 start 메서드 통해 대상 함수 실행
 
 
 
