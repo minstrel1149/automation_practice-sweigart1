@@ -278,6 +278,13 @@
   - threading.Thread(target, (kw)args) 함수 → Thread 객체 생성
     - target에는 함수 지정, args/kwargs에는 인자 전달
     - Thread 객체를 변수에 할당 후 start 메서드 통해 대상 함수 실행
+3. 프로그램 실행 → subprocess 모듈
+  - subprocess.Popen(경로) 함수 이용하여 다른 프로그램 실행
+    - 프로세스가 실행 중일 경우 poll 메서드는 None을 반환
+    - wait 메서드로 프로세스가 종료될 때까지 실행을 멈추기 가능(프로그램 대기)
+      - 단 calc.exe(계산기) 같이 특수 프로그램은 실행과 동시에 스스로 종료
+  - subprocess.Popen([실행 파일, 경로]) 함수 형태로도 가능
+    - 기본 연결 프로그램으로 실행할 경우 subprocess.Popen(['start', 경로], shell=True) 형태
 
 
 
