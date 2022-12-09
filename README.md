@@ -286,6 +286,37 @@
   - subprocess.Popen([실행 파일, 경로]) 함수 형태로도 가능
     - 기본 연결 프로그램으로 실행할 경우 subprocess.Popen(['start', 경로], shell=True) 형태
 
+### 이메일 보내기 및 확인하기
+1. 이메일 보내기 → smtplib 모듈
+  - smtplib.SMTP() 함수 활용하여 smtp 객체 생성
+    - smtplib.SMTP('smtp.gmail.com', 587/465) 형태
+    - smtp 객체 생성 후에는 ehlo 메서드 및 starttls 메서드 호출 필요
+    - 모두 완료되었을 경우 quit 메서드를 통해 종료
+  - login(id, password) 메서드로 로그인(단, 2단계 인증 활성화 되어있을 경우 사용 불가)
+  - email.mime.multipart.MIMEMultipart, email.mime.text.MIMEText 모듈 활용하여 메시지 작성
+    - msg['subject'], msg['to'], msg['from'], msg['cc'], msg['bcc'] 활용
+    - attach 메서드를 활용하여 Multipart()에 MIMEText() 객체 삽입
+  - sendmail(from, to, msg.as_string()) 메서드 이용하여 메일 송부
+2. 이메일 확인하기 → imaplib 모듈
+  - imaplib.IMAP4_SSL() 함수를 통해 imap 객체 생성
+    - imaplib.IMAP4_SSL('imap.gmail.com') 형태
+    - 모두 완료되었을 경우 logout 메서드 이용하여 로그아웃
+  - login(id, password) 메서드로 로그인(앱 비밀번호로 로그인 가능)
+  - select 메서드를 통하여 메일함 지정 -> 'INBOX' 등
+    - readonly=True 인자를 통해 읽기 전용으로 열기도 가능
+    - imap 객체의 list 메서드를 통해 메일함 확인 가능
+  - search 메서드 활용 → 첫 번째 인자는 charset, 두 번째 인자는 찾고자 하는 내용
+    - status와 result(uid의 한 묶음 리스트 형태)의 튜플로 반환
+    - result는 한 묶음 리스트 형태이므로, index 0 지정 후 split()으로 새로운 리스트로 분류
+  - fetch 메서드를 활용하여 확인 → 첫 번째 인자는 확인하고자 하는 메일의 uid, 두 번째 인자는 '(RFC822)'로 고정
+    - 마찬가지로 status와 result(인코딩 이전 메시지 형태의 한 묶음 리스트 형태)를 튜플로 반환
+    - result는 한 묶음 리스트 형태이므로, index 0 지정 및 index 1 지정으로 인코딩 이전 메시지 추출
+    - email 모듈의 message_from_bytes(result[0][1]) 함수 이용하여 message 객체 생성
+      - keys 메서드 이용하여 어떠한 키들이 있는지 확인 → 즉, 딕셔너리 형태
+      - 키들을 이용해 수신인, 발신인, 제목, 일시 등 확인 가능
+      - get_payload 메서드 이용해 본문 확인 가능(텍스트인 경우)
+        - is_multipart 메서드가 True일 경우 별도 방법 필요
+
 
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
