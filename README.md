@@ -11,10 +11,10 @@
 ## 신규 README.md 방식
 ### Chapter.7 - 정규표현식을 활용한 더 많은 패턴 대조
 1. re 모듈 함수 및 메서드 플로우
-  - compile 함수를 통한 Regex객체 생성 → search, findall 메서드로 검색 후 Match 객체 반환
-  - group 메서드를 전달하여 호출 및 값 출력
-    - 정규식에 소괄호를 넣으면 그룹 생성 가능. groups 메서드로 그룹들 튜플 출력
-  - findall은 group 전달 없이 그 자체로 문자열로 구성된 리스트 호출
+  - compile 함수를 통한 Regex객체 생성 → search(), findall() 메서드로 검색 후 Match 객체 반환
+  - group() 메서드를 전달하여 호출 및 값 출력
+    - 정규식에 소괄호를 넣으면 그룹 생성 가능. groups() 메서드로 그룹들 튜플 출력
+  - findall() 메서드는 group 전달 없이 그 자체로 문자열로 구성된 리스트 호출
   - 역슬래시를 통한 이스케이프 가능
   - compile 함수 활용 시 전달인자를 통해 컨트롤 가능
     - re.I(re.IGNORECASE) 인자로 대소문자 미구분
@@ -74,7 +74,7 @@
     - os.sep 속성(구분자 - 슬래시 혹은 역슬래시) 이용하여 파이썬의 split 연계
   - os.listdir(path)로 path에 있는 파일 이름 리스트 반환 혹은 Path 객체의 glob 메서드 이용
     - 문자열(파일이름) 반환이냐 Path 객체 반환이냐
-    - glob 메서드는 '*.txt', 'project?.docx' 형태 등 활용 가능
+    - glob() 메서드는 '*.txt', 'project?.docx' 형태 등 활용 가능
   - 경로 유효성 검사
     - p.exists(), p.is_file(), p.is_dir()
 2. 파일 읽기/쓰기 및 파일에 변수 저장
