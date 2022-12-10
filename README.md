@@ -21,7 +21,7 @@
     - re.VERBOSE 인자로 여러 줄에 걸쳐 주석과 함께 작성
     - re.DOTALL 후술
     - 해당 인자들을 파이프 문자로 결합 가능
-  - sub 메서드에 치환할 문자열 및 정규식과 대조할 문자열 전달하여 치환 결과 문자열 반환
+  - sub() 메서드에 치환할 문자열 및 정규식과 대조할 문자열 전달하여 치환 결과 문자열 반환
 2. 정규식 자체 사용법
   - 파이프문자로 여러 그룹 대조(소괄호를 통한 일부 그룹 가능)
   - 소괄호와 물음표, 별표, 플러스를 사용한 선택적 대조
@@ -63,16 +63,16 @@
   - Path.home(), Path.cwd() → os.chdir() 함수로 Current Working Directory 수정 가능
   - 절대 경로와 상대 경로
     - 마침표 한 개(.)는 현재 디렉터리 축약, 마침표 두 개(..)는 상위 폴더를 의미
-    - is_absolute 메서드로 절대 경로 여부 확인 가능
+    - is_absolute() 메서드로 절대 경로 여부 확인 가능
     - os.path.abspath() 함수 및 os.path.relpath() 함수로 상호 변경 가능
-  - os.makedirs() 함수로 새로운 폴더 생성 가능 → Path 객체의 mkdir 메서드와 유사(os.mkdir())
+  - os.makedirs() 함수로 새로운 폴더 생성 가능 → Path 객체의 mkdir() 메서드와 유사(os.mkdir())
     - exist_ok=True 인자 전달하여 예외발생 방지 가능
   - 파일 경로의 일부분 얻기 → Path 객체의 속성 이용
     - anchor, parent(Path 객체 반환), name, stem, suffix, drive
     - parents 속성 이용하여 상위 폴더들 가져오기 가능
     - os.path.dirname(), os.path.basename()도 활용 → os.path.split(path)로 이분할 가능
     - os.sep 속성(구분자 - 슬래시 혹은 역슬래시) 이용하여 파이썬의 split 연계
-  - os.listdir(path)로 path에 있는 파일 이름 리스트 반환 혹은 Path 객체의 glob 메서드 이용
+  - os.listdir(path)로 path에 있는 파일 이름 리스트 반환 혹은 Path 객체의 glob() 메서드 이용
     - 문자열(파일이름) 반환이냐 Path 객체 반환이냐
     - glob() 메서드는 '*.txt', 'project?.docx' 형태 등 활용 가능
   - 경로 유효성 검사
@@ -80,7 +80,7 @@
 2. 파일 읽기/쓰기 및 파일에 변수 저장
   - open() 함수를 호출하면 File 객체를 반환 → File 객체에 메서드 호출로 처리
   - mode='r' / 'rb' 인자 전달하여 읽기
-    - read, readline, readlines 메서드 혹은 read().splitlines()
+    - read(), readline(), readlines() 메서드 혹은 read().splitlines()
   - mode='w' / 'wb' / 'a' 인자 전달하여 쓰기
   - shelve 모듈 사용하여 변수들을 shelf 파일로 저장 가능
     - shelve.open() 함수는 Path 객체 사용 불가 → str로 형변환 필요
@@ -97,11 +97,11 @@
   - os.walk() 함수 활용 → 폴더 경로 문자열, 하위 폴더 문자열 리스트, 폴더 내 파일 문자열 리스트
 3. zipfile 모듈을 활용한 파일/폴더 압축
   - ZipFile() 함수 활용하여 경로 확인 → ZipFile 객체 반환
-    - namelist 메서드로 압축 파일 내 파일 이름들 확인
+    - namelist() 메서드로 압축 파일 내 파일 이름들 확인
     - getinfo(파일 이름) 메서드 → file_size, compress_size 속성 등
     - extractall(경로), extract(파일, 경로) 메서드로 압축 풀기
   - ZipFile() 함수에 mode='w' 인자 전달하여 압축 가능('a' 전달하면 압축 파일에 추가도 가능)
-    - write 메서드 활용 시 compress_type=zipfile.ZIP_DEFLATED 전달 필요
+    - write() 메서드 활용 시 compress_type=zipfile.ZIP_DEFLATED 전달 필요
     - os.walk() 등과 연계하여 폴더 내 모든 파일도 압축 가능
     - Path.home()에서 상위 폴더들까지 압축경로로 이어지는 문제 해결해야..
 
