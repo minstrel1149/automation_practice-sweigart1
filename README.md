@@ -317,6 +317,39 @@
       - get_payload 메서드 이용해 본문 확인 가능(텍스트인 경우)
         - is_multipart 메서드가 True일 경우 별도 방법 필요
 
+### Chapter.20 - GUI 자동화로 키보드와 마우스 제어 → pyautogui 모듈
+1. 마우스 움직임 제어
+  - size() 함수는 화면의 너비와 높이를 네임드 튜플로 반환
+  - 마우스 커서 옮기기
+    - moveTo(x, y, duration) 함수로 마우스 커서를 화면의 특정 위치로 옮기기
+    - move(x, y, duration) 함수로 마우스 현재 위치에서 이동시키기
+  - position() 함수로 마우스의 현재 위치 확인
+  - click(x, y, button) 함수로 희망하는 위치 클릭
+    - doubleClick(), rightClick(), middleClick() 함수도 활용 가능
+    - click(left, top, width, height) 형태도 가능 → 해당 영역의 중앙 부분 클릭
+  - 마우스 드래그하기
+    - dragTo(x, y, duration) 함수로 마우스 커서를 화면의 특정 위치로 드래그
+    - drag(x, y, duration) 함수로 마우스 커서를 화면의 현재 위치에서 상대적인 위치로 드래그
+  - mouseInfo() 함수로 클릭하려는 것의 좌표 알아내기 가능
+  - screenshot() 함수로 스크린샷 가능 → Image 객체로 반환
+3. 기타 컴퓨터 제어
+  - pixel(x, y) 함수로 특정 픽셀의 RGB 색상 값 얻기 가능
+    - pixelMatchesColor(x, y, (R, G, B)) 함수로 일치 여부 확인 → 불린 값
+  - locateOnScreen(파일 경로) 함수로 이미지를 찾아낸 좌표(left, top, width, height) 반환
+    - locateAllOnScreen(파일 경로) 함수는 Generator 객체 반환 → 리스트에 전달 가능
+    - click(파일 경로) 함수로 직접 클릭 가능
+  - 창 정보 얻기 → Window 객체
+    - Window 객체는 크기, 위치, 제목 등 속성
+      - left, right, top, bottom
+      - topleft, topright, bottomleft, bottomright
+      - width, height
+      - size, area
+      - center, centerx, centery
+      - box(left, top, width, height)
+      - title
+    - getActiveWindow() 함수로 활성화 Window 객체 생성 가능
+      - getAllWindows(), getWindowsWithTitle(title) 등 함수도 가능
+
 
 
 ## 과거 README.md 방식(신규 완성 이후 삭제 예정)
