@@ -332,6 +332,12 @@
     - drag(x, y, duration) 함수로 마우스 커서를 화면의 현재 위치에서 상대적인 위치로 드래그
   - mouseInfo() 함수로 클릭하려는 것의 좌표 알아내기 가능
   - screenshot() 함수로 스크린샷 가능 → Image 객체로 반환
+2. 키보드 제어
+  - write() 함수 통해 가상의 키 입력 전송
+    - 두 번째 위치 인자로 작성 시간 지정 가능(duration 키워드 인자는 아님)
+    - 리스트를 전달하여 키보드 키 입력 가능
+  - press() 함수로 키 입력 → keyDown() 및 keyUp() 함수의 조합
+  - hotkey() 함수로 단축키 조합 → pyperclip과 연결 가능 등
 3. 기타 컴퓨터 제어
   - pixel(x, y) 함수로 특정 픽셀의 RGB 색상 값 얻기 가능
     - pixelMatchesColor(x, y, (R, G, B)) 함수로 일치 여부 확인 → 불린 값
@@ -339,7 +345,7 @@
     - locateAllOnScreen(파일 경로) 함수는 Generator 객체 반환 → 리스트에 전달 가능
     - click(파일 경로) 함수로 직접 클릭 가능
   - 창 정보 얻기 → Window 객체
-    - Window 객체는 크기, 위치, 제목 등 속성
+    - Window 객체는 크기, 위치, 제목 등 속성 → 속성 값 변경하여 제어 가능
       - left, right, top, bottom
       - topleft, topright, bottomleft, bottomright
       - width, height
@@ -349,6 +355,10 @@
       - title
     - getActiveWindow() 함수로 활성화 Window 객체 생성 가능
       - getAllWindows(), getWindowsWithTitle(title) 등 함수도 가능
+    - isMaximize, isMiniMize, isActive 속성 및 maximize, restore, activate, close 메서드 등 활용 가능
+4. 기타 - pyperclip 모듈
+  - pyperclip.copy 함수를 통해 클립보드에 복사 가능
+  - pyperclip.paste 함수를 통해 클립보드에 복사된 내용을 붙여넣기 → 변수에 할당도 가능
 
 
 
