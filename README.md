@@ -119,21 +119,21 @@
 1. webbrowser 모듈 및 requests 모듈
   - webbrowser.open() 함수 활용하여 특정 URL에 접속
   - requests.get(URL 문자열) → Response 객체 반환
-    - raise_for_status 메서드로 오류 검사 → try ~ except 문으로 처리 가능
+    - raise_for_status() 메서드로 오류 검사 → try ~ except 문으로 처리 가능
     - 텍스트 파일일 경우 text 속성으로 확인 가능(단, 이진문서임을 고려)
     - for문과 iter_content() 메서드 이용하여 PC에 저장 가능
 2. bs4 모듈을 통한 웹 크롤링 및 스크래핑
   - BS(res.text, 'html.parser') 형태로 BeautifulSoup 객체 반환 → 'html.parser'는 구문 분석기
-  - select 메서드 → CSS 선택자의 문자열을 통한 검색
+  - select() 메서드 → CSS 선택자의 문자열을 통한 검색
     - bsObj.select('div') : 이름이 div인 모든 요소
     - bsObj.select('div span') : div 요소 내 존재하는 요소 중 이름이 span인 모든 요소
     - bsObj.select('#author') : id 속성이 author인 요소
     - bsObj.select('.notice') : CSS class 속성의 이름이 notice인 요소
     - bsObj.select('input[name]') : 이름이 input인 요소 중 name 속성 값이 있는 모든 요소
     - bsObj.select('input[type="button"]') : 이름이 input인 요소 중 type 속성 값이 button인 경우
-  - find / find_all 메서드
+  - find / find_all() 메서드
     - bsObj.find_all('img', {'class':'img-responsive'}) 형태로 활용
-  - get 메서드를 활용하여 해당 속성 값 반환 가능
+  - get() 메서드를 활용하여 해당 속성 값 반환 가능
     - attrs 속성을 이용해서 속성에 대한 키-값 반환도 가능
 3. selenium 모듈을 사용하여 브라우저 제어
   - import 필요한 모듈
@@ -144,19 +144,19 @@
     - from selenium.webdriver.common.keys import Keys
     - from selenium.webdriver.chrome.options import Options
     - driver = webdriver.Chrome(service=Service(ChromeDriverManager().install())) 형태로 오픈
-  - get 메서드에 사이트 주소 전달하여 사이트 오픈
+  - get() 메서드에 사이트 주소 전달하여 사이트 오픈
   - 페이지에서 요소를 찾는 메서드로 find_element(s) 이용
     - find_element(s) 종류
       - By.CLASS_NAME, By.ID, By.LINK_TEXT, By.PARTIAL_LINK_TEXT, By.NAME, By.TAG_NAME
     - tag_name 속성 이용하여 태그 이름 추출
     - text 속성 이용하여 텍스트 추출
-    - get_attribute 메서드 이용하여 name 속성에 해당하는 값 추출
-    - LINK_TEXT 관련 객체의 경우 click 메서드를 이용해 드라이버 조종 가능
-    - send_keys 메서드 및 submit 메서드를 이용해 작성 후 제출 가능
-    - send_keys 메서드에 Keys 모듈 결합 가능
+    - get_attribute() 메서드 이용하여 name 속성에 해당하는 값 추출
+    - LINK_TEXT 관련 객체의 경우 click() 메서드를 이용해 드라이버 조종 가능
+    - send_keys() 메서드 및 submit() 메서드를 이용해 작성 후 제출 가능
+    - send_keys() 메서드에 Keys 모듈 결합 가능
       - By.TAG_NAME('html')을 통해 사이트 자체를 컨트롤하도록 만든 후 진행
       - DOWN, UP, LEFT, RIGHT, ENTER, HOME, END, PAGE_UP, PAGE_DOWN, ESCAPE, BACK_SPACE, TAB 등
-  - driver에 back, forward, refresh, quit 메서드로 driver 컨트롤 가능
+  - driver에 back(), forward(), refresh(), quit() 메서드로 driver 컨트롤 가능
 
 ### Chapter.13/14 - 엑셀/구글 스프레드시트 다루기
 1. openpyxl 모듈을 이용한 엑셀 컨트롤
