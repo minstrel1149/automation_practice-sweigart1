@@ -11,12 +11,12 @@
 ## 신규 README.md 방식
 ### Chapter.7 - 정규표현식을 활용한 더 많은 패턴 대조
 1. re 모듈 함수 및 메서드 플로우
-  - compile 함수를 통한 Regex객체 생성 → search(), findall() 메서드로 검색 후 Match 객체 반환
+  - compile() 함수를 통한 Regex객체 생성 → search(), findall() 메서드로 검색 후 Match 객체 반환
   - group() 메서드를 전달하여 호출 및 값 출력
     - 정규식에 소괄호를 넣으면 그룹 생성 가능. groups() 메서드로 그룹들 튜플 출력
   - findall() 메서드는 group 전달 없이 그 자체로 문자열로 구성된 리스트 호출
   - 역슬래시를 통한 이스케이프 가능
-  - compile 함수 활용 시 전달인자를 통해 컨트롤 가능
+  - compile() 함수 활용 시 전달인자를 통해 컨트롤 가능
     - re.I(re.IGNORECASE) 인자로 대소문자 미구분
     - re.VERBOSE 인자로 여러 줄에 걸쳐 주석과 함께 작성
     - re.DOTALL 후술
@@ -88,7 +88,7 @@
 ### Chapter.10 - 파일 정리하기
 1. shutil 모듈 및 send2trash 모듈을 통한 파일 정리
   - shutil.copy(), shutil.copytree() 함수를 통한 복사
-    - copytree 함수는 덮어쓰기가 안되므로 예외 처리 필요
+    - copytree() 함수는 덮어쓰기가 안되므로 예외 처리 필요
   - shutil.move() 함수를 통한 파일 이동 및 이름 바꾸기
   - os.unlink(), os.rmdir(), shutil.rmtree(), send2trash.send2trach() 함수를 통한 삭제
     - 삭제 시에는 send2trash 이용(파일 영구 삭제가 아닌 휴지통으로 이동)
@@ -184,7 +184,7 @@
     - Series 객체 : openpyxl.chart.Series(Ref, title)
     - Chart 객체 : openpyxl.chart.BarChart()
       - title 속성으로 이름 변경
-      - append 메서드를 통해 Series 객체 전달
+      - append() 메서드를 통해 Series 객체 전달
     - sheet.add_chart(Chart, '위치') 를 통해 시트에 그래프 추가
 2. win32com.client 모듈을 활용한 엑셀 컨트롤(추가) → win32com.client.Dispatch('Excel.Application')
   - excel.Visible = True 이용하여 엑셀을 보면서 컨트롤 가능
@@ -202,7 +202,7 @@
   - ws.Range('F1:F2').AutoFill(ws.Range('F1:F7')) 형태로 값 및 수식 자동 채우기
 3. gspread 모듈을 통한 구글 스프레드 시트 컨트롤
   - wb = gc.open(링크) 형태로 오픈
-    - worksheets 메서드 → worksheet 객체들 리스트로 반환
+    - worksheets() 메서드 → worksheet 객체들 리스트로 반환
     - add_worksheet(title=) 메서드로 새로운 시트 생성
     - del_worksheet(sheet) 메서드로 시트 삭제 → worksheet 객체가 들어가야
   - wb.get_worksheet(i) 혹은 wb.worksheet(이름) 형태로 특정 시트 얻기 → worksheet 객체
@@ -211,7 +211,7 @@
     - sheet.get('A1:C3') 형태로 범위 내 값 수집
     - sheet.update('A1:B2', [[1, 2] [3, 4]]) 형태로 셀 값 수정 가능
     - sheet.row_values(n), sheet.col_values(n) 형태로 행/열 모든 값 리스트로 수집
-    - get_all_values 메서드로 전체 값을 리스트로 수집
+    - get_all_values() 메서드로 전체 값을 리스트로 수집
     - sheet.batch_clear(['A1:B2']) 형태로 값 삭제 가능
   - sheet.format('A1:B1', {}) 형태로 셀 포맷 수정
     - 'backgroundcolor', 'horizontalAlignment', 'textFormat'(→ 'fontsize', 'bold') 등
@@ -222,15 +222,15 @@
     - numPages 속성으로 페이지 수 확인
     - getPage(i) 메서드로 Page 객체 생성
   - PdfFileWriter() 함수 이용하여 새 PDF 파일 생성 → PDFWriter 객체
-    - PDFWriter 객체에서 addPage 메서드로 페이지 추가 가능(제일 마지막 페이지에 추가)
+    - PDFWriter 객체에서 addPage() 메서드로 페이지 추가 가능(제일 마지막 페이지에 추가)
     - PDFWriter 객체에서 write(File 객체) 메서드 이용하여 PDF파일 최종 쓰기
   - Page 객체에서 rotateClockwise(각도) 메서드로 페이지 회전 가능(inplace 적용)
   - Page 객체에서 mergePage(다른 Page 객체) 메서드로 페이지 덧입히기 가능(inplace 적용)
 2. 기타
   - Page 객체에서 extractText() 메서드로 페이지 내 텍스트 추출
   - PDFReader 객체에서 isEncrypted 속성으로 암호화 여부 판단
-    - decrypt 메서드 이용하여 비밀번호 해제(단, PDFFile 객체를 해독할 뿐, 실제 PDF는 계속 비밀번호)
-    - encrypt 메서드 이용하여 비밀번호 설정
+    - decrypt() 메서드 이용하여 비밀번호 해제(단, PDFFile 객체를 해독할 뿐, 실제 PDF는 계속 비밀번호)
+    - encrypt() 메서드 이용하여 비밀번호 설정
 
 ### Chapter.16 - CSV 파일과 JSON 데이터 다루기
 1. csv 모듈
@@ -243,13 +243,13 @@
       - pd.read_csv() 에서는 header 인자 전달하여 가능
   - csv 쓰기
     - csv.writer(File 객체) 함수를 통해 csv 쓰기 → writer 객체
-      - csv.writer 함수 활용 시 delimiter='\t', lineterminator='\n\n' 등 선택 인자 전달 가능
+      - csv.writer() 함수 활용 시 delimiter='\t', lineterminator='\n\n' 등 선택 인자 전달 가능
         - delimiter는 구분자, lineterminator는 줄 끝 문자
     - File 객체 생성 시 newline='' 인자 꼭 전달해줘야
     - writer 객체에서 writerow(s) 메서드 이용하여 내용 삽입 가능
     - csv.DictWriter(File 객체, [헤더 리스트]) 함수로 헤더를 지정한 csv 쓰기
-      - writer 객체에서 writeheader 메서드 이용하여 파일에 헤더 행 삽입
-      - writerow 메서드 활용 시 딕셔너리로 전달
+      - writer 객체에서 writeheader() 메서드 이용하여 파일에 헤더 행 삽입
+      - writerow() 메서드 활용 시 딕셔너리로 전달
 2. json 모듈
   - json.loads() 함수 : json → 딕셔너리
   - json.dumps() 함수 : 딕셔너리 → json
@@ -257,9 +257,9 @@
 ### Chapter.17 - 시간 관리, 작업 예약, 프로그램 실행
 1. 시간 관련 모듈 → time 모듈, datetime 모듈
   - time 모듈
-    - Unix epoch(1970/1/1 00:00:00) 기준 경과 초 → time.time 함수
-    - time.ctime 함수 : 현재 시각에 관한 설명을 문자열로 반환
-    - time.sleep 함수를 통해 프로그램 잠시 중지 가능
+    - Unix epoch(1970/1/1 00:00:00) 기준 경과 초 → time.time() 함수
+    - time.ctime() 함수 : 현재 시각에 관한 설명을 문자열로 반환
+    - time.sleep() 함수를 통해 프로그램 잠시 중지 가능
   - datetime 모듈(from datetime import ..) → 고유의 datetime 및 timedelta 자료형
     - datetime 값은 특정 시점의 시각
       - datetime(year, month, day, hour, minute) 형태로 활용
@@ -267,21 +267,21 @@
       - 더 나중 시점의 datetime 객체는 더 큰 값 → 비교 가능
     - timedelta 값은 기간에 대한 시간
       - timedelta(days, hours, minutes, seconds, microseconds) 형태로 활용
-      - days, seconds, microseconds 속성 및 total_seconds 메서드로 확인 가능
+      - days, seconds, microseconds 속성 및 total_seconds() 메서드로 확인 가능
       - str로 형변환도 가능
       - datetime 값에 대해 날짜 산술 수행 가능
-    - datetime의 strftime 메서드 이용하여 문자열 형식으로 출력
+    - datetime의 strftime() 메서드 이용하여 문자열 형식으로 출력
       - %Y(%y), %m(%B, %b), %d, %A(%a), %H(%I), %M, %S, %F, %D 형식 등
-    - strptime(문자열, 지시자) 함수로 strftime 메서드의 반대 역할 수행도 가능
+    - strptime(문자열, 지시자) 함수로 strftime() 메서드의 반대 역할 수행도 가능
 2. 멀티스레딩 → threading 모듈
   - 지연 또는 예약 실행을 하려는 코드는 별도의 스레드에서 실행
   - threading.Thread(target, (kw)args) 함수 → Thread 객체 생성
     - target에는 함수 지정, args/kwargs에는 인자 전달
-    - Thread 객체를 변수에 할당 후 start 메서드 통해 대상 함수 실행
+    - Thread 객체를 변수에 할당 후 start() 메서드 통해 대상 함수 실행
 3. 프로그램 실행 → subprocess 모듈
   - subprocess.Popen(경로) 함수 이용하여 다른 프로그램 실행
-    - 프로세스가 실행 중일 경우 poll 메서드는 None을 반환
-    - wait 메서드로 프로세스가 종료될 때까지 실행을 멈추기 가능(프로그램 대기)
+    - 프로세스가 실행 중일 경우 poll() 메서드는 None을 반환
+    - wait() 메서드로 프로세스가 종료될 때까지 실행을 멈추기 가능(프로그램 대기)
       - 단 calc.exe(계산기) 같이 특수 프로그램은 실행과 동시에 스스로 종료
   - subprocess.Popen([실행 파일, 경로]) 함수 형태로도 가능
     - 기본 연결 프로그램으로 실행할 경우 subprocess.Popen(['start', 경로], shell=True) 형태
@@ -290,32 +290,32 @@
 1. 이메일 보내기 → smtplib 모듈
   - smtplib.SMTP() 함수 활용하여 smtp 객체 생성
     - smtplib.SMTP('smtp.gmail.com', 587/465) 형태
-    - smtp 객체 생성 후에는 ehlo 메서드 및 starttls 메서드 호출 필요
-    - 모두 완료되었을 경우 quit 메서드를 통해 종료
+    - smtp 객체 생성 후에는 ehlo() 메서드 및 starttls() 메서드 호출 필요
+    - 모두 완료되었을 경우 quit() 메서드를 통해 종료
   - login(id, password) 메서드로 로그인(단, 2단계 인증 활성화 되어있을 경우 사용 불가)
   - email.mime.multipart.MIMEMultipart, email.mime.text.MIMEText 모듈 활용하여 메시지 작성
     - msg['subject'], msg['to'], msg['from'], msg['cc'], msg['bcc'] 활용
-    - attach 메서드를 활용하여 Multipart()에 MIMEText() 객체 삽입
+    - attach() 메서드를 활용하여 Multipart()에 MIMEText() 객체 삽입
   - sendmail(from, to, msg.as_string()) 메서드 이용하여 메일 송부
 2. 이메일 확인하기 → imaplib 모듈
   - imaplib.IMAP4_SSL() 함수를 통해 imap 객체 생성
     - imaplib.IMAP4_SSL('imap.gmail.com') 형태
-    - 모두 완료되었을 경우 logout 메서드 이용하여 로그아웃
+    - 모두 완료되었을 경우 logout() 메서드 이용하여 로그아웃
   - login(id, password) 메서드로 로그인(앱 비밀번호로 로그인 가능)
-  - select 메서드를 통하여 메일함 지정 -> 'INBOX' 등
+  - select() 메서드를 통하여 메일함 지정 -> 'INBOX' 등
     - readonly=True 인자를 통해 읽기 전용으로 열기도 가능
-    - imap 객체의 list 메서드를 통해 메일함 확인 가능
-  - search 메서드 활용 → 첫 번째 인자는 charset, 두 번째 인자는 찾고자 하는 내용
+    - imap 객체의 list() 메서드를 통해 메일함 확인 가능
+  - search() 메서드 활용 → 첫 번째 인자는 charset, 두 번째 인자는 찾고자 하는 내용
     - status와 result(uid의 한 묶음 리스트 형태)의 튜플로 반환
     - result는 한 묶음 리스트 형태이므로, index 0 지정 후 split()으로 새로운 리스트로 분류
-  - fetch 메서드를 활용하여 확인 → 첫 번째 인자는 확인하고자 하는 메일의 uid, 두 번째 인자는 '(RFC822)'로 고정
+  - fetch() 메서드를 활용하여 확인 → 첫 번째 인자는 확인하고자 하는 메일의 uid, 두 번째 인자는 '(RFC822)'로 고정
     - 마찬가지로 status와 result(인코딩 이전 메시지 형태의 한 묶음 리스트 형태)를 튜플로 반환
     - result는 한 묶음 리스트 형태이므로, index 0 지정 및 index 1 지정으로 인코딩 이전 메시지 추출
     - email 모듈의 message_from_bytes(result[0][1]) 함수 이용하여 message 객체 생성
-      - keys 메서드 이용하여 어떠한 키들이 있는지 확인 → 즉, 딕셔너리 형태
+      - keys() 메서드 이용하여 어떠한 키들이 있는지 확인 → 즉, 딕셔너리 형태
       - 키들을 이용해 수신인, 발신인, 제목, 일시 등 확인 가능
-      - get_payload 메서드 이용해 본문 확인 가능(텍스트인 경우)
-        - is_multipart 메서드가 True일 경우 별도 방법 필요
+      - get_payload() 메서드 이용해 본문 확인 가능(텍스트인 경우)
+        - is_multipart() 메서드가 True일 경우 별도 방법 필요
 
 ### Chapter.20 - GUI 자동화로 키보드와 마우스 제어 → pyautogui 모듈
 1. 마우스 움직임 제어
@@ -355,10 +355,10 @@
       - title
     - getActiveWindow() 함수로 활성화 Window 객체 생성 가능
       - getAllWindows(), getWindowsWithTitle(title) 등 함수도 가능
-    - isMaximize, isMiniMize, isActive 속성 및 maximize, restore, activate, close 메서드 등 활용 가능
+    - isMaximize, isMiniMize, isActive 속성 및 maximize(), restore(), activate(), close() 메서드 등 활용 가능
 4. 기타 - pyperclip 모듈
-  - pyperclip.copy 함수를 통해 클립보드에 복사 가능
-  - pyperclip.paste 함수를 통해 클립보드에 복사된 내용을 붙여넣기 → 변수에 할당도 가능
+  - pyperclip.copy() 함수를 통해 클립보드에 복사 가능
+  - pyperclip.paste() 함수를 통해 클립보드에 복사된 내용을 붙여넣기 → 변수에 할당도 가능
 
 
 
